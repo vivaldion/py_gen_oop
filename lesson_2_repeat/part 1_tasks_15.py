@@ -27,5 +27,3 @@ def recviz(func):
         return value
 
     return wrapper
-class Owner:
-    def __init__(self):
