@@ -8,15 +8,13 @@
 
 
 class CountCalls:
-    def __init__(self):
-        self.counter = 0
+    def __init__(self, func):
+        self.calls = 0
+        self.func = func
 
-    def __call__(self, func):
-        def wrapper(*args, **kwargs):
-            return func(*args, **kwargs)
-        CountCalls.counter += 1
-        return self.
-
+    def __call__(self, *args, **kwargs):
+        self.calls += 1
+        return self.func(*args,**kwargs)
 
 @CountCalls
 def add(a, b):
